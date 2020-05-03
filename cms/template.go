@@ -5,20 +5,27 @@ import (
 	"time"
 )
 
-//Tmpl is an exported variable
-var Tmpl = template.Must(template.ParseGlob("../templates/*"))
+// Tmpl is a reference to all of our templates
+var Tmpl = template.Must(template.ParseGlob("templates/*"))
 
-//Page struct
+// Page is the struct used for each webpage
 type Page struct {
 	Title   string
 	Content string
 	Posts   []*Post
 }
 
-//Post struct
+// Post is the struct used for each blog post
 type Post struct {
 	Title         string
 	Content       string
 	DatePublished time.Time
 	Comments      []*Comment
+}
+
+// Comment is the struct used for each comment
+type Comment struct {
+	Author        string
+	Comment       string
+	DatePublished time.Time
 }
